@@ -19,6 +19,13 @@ loop {
   break if i <= 0 
 }
   
+i=0
+loop do
+i+=1
+print "Ruby!"
+break if i==30
+end  
+  
 #the each operator  
 array = [1,2,3,4,5]
 
@@ -34,4 +41,13 @@ odds.each {|i|
   print i
 }
 
+#the timesoperator
+10.times {puts "Sankalp bhai"}
+
 #
+
+
+
+
+
+
