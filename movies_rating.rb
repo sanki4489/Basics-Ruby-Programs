@@ -64,3 +64,48 @@ end
 
 
 #My solution
+movies = {Batman: 1, Superman: 2}
+puts "what do you want to do with your movies?"
+puts "--add--want to add new movie"
+puts "--update--want to upddate a movie"
+puts "--display--want to display all the movie"
+puts "--delete--want to delete a movie"
+choice = gets.chomp
+case choice
+when "add"
+  puts "Movie to be added"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+    puts "Rating of the movie"
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i
+  else
+    puts "movie already there"  
+  end  
+
+when "update"
+  puts "Enter the movie name which you want to update"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+    puts "Movie no available"
+  else
+    puts "Give the new rating for the movie?"
+    rating = gets.chomp
+    movies[title.to_sym] = rating.to_i  
+  end
+
+when "display"
+  movies.each {|movie, rating| puts "#{movie}: #{rating}"}
+
+when "delete"
+  puts "Enter the movie name which you want to delete"
+  title = gets.chomp
+  if movies[title.to_sym].nil?
+    puts "Movie not available"
+  else
+    movies.delete(title.to_sym)
+  end  
+
+else
+  puts "system crashed"
+end     
