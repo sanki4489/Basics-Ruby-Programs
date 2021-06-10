@@ -31,3 +31,28 @@ my_machine.create("groceries.txt")
 your_machine.create("todo.txt")
 
 puts "Users: #{Machine.get_users}"
+
+#my solution
+class Computer
+  @@users = {}
+  def initialize(username, password)
+    @username = username
+    @password = password
+    @files = {}
+    @@users[username] = password 
+  end
+
+  def create(filename)
+    time = Time.now
+    @files[filename] = time
+    puts "#{@username} has created #{filename} at #{time}."
+  end
+  
+  def Computer.get_users
+  return @@users
+  end
+end  
+
+my_computer = Computer.new("Sankalp", 4489)
+my_computer.create("london.txt")
+
